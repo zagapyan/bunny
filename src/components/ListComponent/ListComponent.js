@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {observer} from 'mobx-react'
 import PropTypes from 'prop-types'
 import styles from './ListComponent.css'
 
@@ -9,7 +10,9 @@ class ListComponent extends Component {
     null
     render() {
         return (
-            <div className="ListComponent">ListComponent</div>
+            <div className="ListComponent">
+                ListComponent
+            </div>
         );
     }
 }
@@ -18,4 +21,4 @@ ListComponent.propTypes = {}
 
 ListComponent.defaultProps = {}
 
-export default ListComponent
+export default observer(ListComponent);

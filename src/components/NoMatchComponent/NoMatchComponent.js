@@ -9,7 +9,7 @@ class NoMatchComponent extends PureComponent {
     null
     render() {
         return (
-            <div className="NoMatchComponent"></div>
+            <div className="NoMatchComponent">404 Not Found</div>
         );
     }
 }
