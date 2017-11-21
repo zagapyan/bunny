@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import HomeComponent from '../HomeComponent'
-import ListComponent from '../ListComponent'
 import NoMatchComponent from '../NoMatchComponent'
-
+import style from './Routes.css'
 
 class Routes extends Component {
     constructor(props) {
