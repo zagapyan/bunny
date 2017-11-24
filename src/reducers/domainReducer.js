@@ -1,28 +1,29 @@
 import { 
-  REQUEST_FEEDS,
   RECEIVE_FEEDS,
   REJECT_FEEDS
 } from '../actions/domainActions';
 
 const initialState={
-  posts: []
+  items: {}
 }
 
 export default function postsReducer(state=initialState, action) {
   switch (action.type) {
-    case(REQUEST_FEEDS):
-      return{
-        fetching: action.fetching,
-        rejected: action.rejected
-      }
+    // receiving dynamic keyhash variables to dispatch actions to reducers
     case(RECEIVE_FEEDS):
       return{
-        fetching: action.fetching,
-        rejected: action.rejected,
-        items: action.items
+        ...state,
+        [`${action.name}Fetching`]: false,
+        [`${action.name}Rejected`]: true,
+        items: {
+          ...state.items,
+          [`${action.name}Items`]: action[`${action.name}Items`]
+        },
+        name: [`${action.name}`]
       }
     case(REJECT_FEEDS):
       return{
+        ...state,
         fetching: action.fetching,
         rejected: action.rejected,
         items: action.items

@@ -7,8 +7,12 @@
   align-items: flex-start;
   flex-direction: column;
 }
+.HomeComponent .ListBodyComponent{
+  display: flex;
+  flex-direction: row;
+}
 
-.HomeComponent .list-container{
+.HomeComponent .ListBodyComponent .list-container{
   display: flex;
   justify-content: space-between;
   width: 100%;
