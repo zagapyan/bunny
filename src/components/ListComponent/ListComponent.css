@@ -1,1 +1,18 @@
-.ListComponent{}
+.ListComponent{
+  display: flex;
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  flex-direction: column;
+  text-align: left;
+}
+.FeedsList{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.FeedsList>li{
+  margin: 0;
+  padding: 20px 0;
+}

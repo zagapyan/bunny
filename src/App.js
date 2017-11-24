@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import {Provider} from 'mobx-react'
+import { Router, Route, Switch, Link } from 'react-router-dom';
+import {Provider} from 'react-redux'
 import { createBrowserHistory } from 'history'
-// import store from './store';
-import 'bulma/css/bulma.css'
+import { store, history } from './store';
 import './App.css'
 import Routes from './components/Routes'
-
-const history = createBrowserHistory();
 
 class App extends Component {
   render() {
     return (
-      <Provider>
+      <Provider store={store}>
         <div className="App">
           <Router history={history}>
             <Routes />

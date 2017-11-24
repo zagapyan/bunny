@@ -1,1 +1,19 @@
-.HomeComponent{}
+.HomeComponent{
+  padding: 0 20px;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.HomeComponent .ListBodyComponent{
+  display: flex;
+  flex-direction: row;
+}
+
+.HomeComponent .ListBodyComponent .list-container{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
