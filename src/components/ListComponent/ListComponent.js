@@ -21,7 +21,9 @@ class ListComponent extends Component {
     let ListItems = this.props.items 
       ? <ul className="FeedsList">{
         this.props.items.map((o,k)=>
-          <li key={k}><a href={o.link}>{o.title}</a></li>)
+          <li key={k}><a href={o.link} target="_blank">
+            {o.title}
+          </a></li>)
       }</ul>
       : <pre>Loading</pre>
 

@@ -26,7 +26,11 @@ const endpoints = [
   {
     url: 'http://www.echojs.com/rss',
     name: 'EchoJS'
-  }
+  },
+  // {
+  //   url: 'http://butdoesitfloat.com/rss',
+  //   name: 'ButDoesItFloat'
+  // }
 ]
 
 class HomeComponent extends Component{
