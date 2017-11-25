@@ -27,10 +27,6 @@ const endpoints = [
     url: 'http://www.echojs.com/rss',
     name: 'EchoJS'
   },
-  // {
-  //   url: 'http://butdoesitfloat.com/rss',
-  //   name: 'ButDoesItFloat'
-  // }
 ]
 
 class HomeComponent extends Component{
@@ -41,16 +37,31 @@ class HomeComponent extends Component{
   componentDidMount(){
     endpoints.map(o=>this.props.fetchFeeds(o.url, o.name))
   }
+  componentWillReceiveProps(nextProps){
+    if(nextProps.fetchFeeds !== this.props.fetchFeeds){
+      console.log(nextProps.fetchFeeds);
+    }
+  }
   render(){
     let iterateListComponent = Object.keys(this.props.items).map(key =>
-      <ListComponent value={key} items={this.props.items[key]} name={key} />
+      {
+        console.log(this.props);
+        return <ListComponent
+          key={key}
+          items={this.props.items[key]}
+          name={key.replace('Items','')}
+          fetchStatus={this.props.fetchStatus}
+          />
+      }
     )
 
     return(
       <div className="HomeComponent">
         <HeaderComponent />
         <div className="ListBodyComponent">
-          {iterateListComponent}
+          <div className="columns">
+            {iterateListComponent}
+          </div>
         </div>
       </div>
     )
@@ -62,7 +73,8 @@ function mapStateToProps(state) {
   return {
     fetchFeeds: domainActions.fetchFeeds,
     items: state.domainReducer.items,
-    name: state.domainReducer.name
+    name: state.domainReducer.name,
+    fetchStatus: state.domainReducer.fetchStatus
   };
 }
 
@@ -75,7 +87,7 @@ function mapDispatchToProps(dispatch) {
 
 ListComponent.propTypes = {
   fetchFeeds: PropTypes.func,
-  items: PropTypes.array
+  items: PropTypes.array,
 }
 ListComponent.defaultProps = {}
 

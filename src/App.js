@@ -4,8 +4,9 @@ import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux'
 import { createBrowserHistory } from 'history'
 import { store, history } from './store';
-import './App.css'
 import Routes from './components/Routes'
+import 'bulma/css/bulma.css'
+import './App.css'
 
 class App extends Component {
   render() {
@@ -14,7 +15,7 @@ class App extends Component {
         <div className="App">
           <Helmet>
               <meta charSet="utf-8" />
-              <title>Bunny 🐰</title>
+              <title>Bunny 🐰 | Your Developer News Feed</title>
           </Helmet>
           <Router history={history}>
             <Routes />

@@ -13,12 +13,21 @@ class ListComponent extends Component {
       super(props)
   }
   null
-  componentDidMount(){
-    // this.props.fetchFeeds(this.props.endpoint, this.props.name);
-  }
+  componentDidMount(){}
   componentWillReceiveProps(nextProps){}
   render() {
-    let ListItems = this.props.items 
+    console.log('fetchStatus',this.props.fetchStatus)
+    console.log('items length',this.props.items.length)
+    console.log('isFetching',this.props.fetchStatus[`${this.props.name}IsFetching`]);
+    switch(true){
+      case(!!this.props.fetchStatus[`${this.props.name}IsFetching`]):
+        console.log('pending');
+        break;
+      case(!!this.props.items.length):
+        console.log('has items');
+        break;
+    }
+    let ListItems = this.props.items.length
       ? <ul className="FeedsList">{
         this.props.items.map((o,k)=>
           <li key={k}><a href={o.link} target="_blank">
