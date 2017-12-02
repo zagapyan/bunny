@@ -16,13 +16,20 @@ class ListComponent extends Component {
   componentDidMount(){}
   componentWillReceiveProps(nextProps){}
   render() {
-    console.log('fetchStatus',this.props.fetchStatus)
+    console.log('fetching',this.props.fetchStatus, this.props.name)
     console.log('items length',this.props.items.length)
-    console.log('isFetching',this.props.fetchStatus[`${this.props.name}IsFetching`]);
+    console.log(
+      `${this.props.name}IsFetching`,
+      this.props.fetchStatus[`${this.props.name}IsFetching`]
+    );
+    console.log(
+      `${this.props.name}IsRejected`,
+      this.props.fetchStatus[`${this.props.name}IsRejected`]
+    );
     switch(true){
-      case(!!this.props.fetchStatus[`${this.props.name}IsFetching`]):
-        console.log('pending');
-        break;
+      // case(!!this.props.fetchStatus[`${this.props.name}IsFetching`] && !!this.props.fetchStatus[`${this.props.name}IsRejected`]):
+      //   console.log('pending');
+      //   break;
       case(!!this.props.items.length):
         console.log('has items');
         break;
