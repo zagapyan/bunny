@@ -43,7 +43,7 @@ class HomeComponent extends Component{
     }
   }
   render(){
-    let iterateListComponent = Object.keys(this.props.items).map(key =>
+    const iterateListComponent = Object.keys(this.props.items).map(key =>
       {
         console.log(this.props);
         return <ListComponent
@@ -54,7 +54,6 @@ class HomeComponent extends Component{
           />
       }
     )
-
     return(
       <div className="HomeComponent">
         <HeaderComponent />

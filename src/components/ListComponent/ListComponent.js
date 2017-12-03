@@ -26,22 +26,15 @@ class ListComponent extends Component {
       `${this.props.name}IsRejected`,
       this.props.fetchStatus[`${this.props.name}IsRejected`]
     );
-    switch(true){
-      // case(!!this.props.fetchStatus[`${this.props.name}IsFetching`] && !!this.props.fetchStatus[`${this.props.name}IsRejected`]):
-      //   console.log('pending');
-      //   break;
-      case(!!this.props.items.length):
-        console.log('has items');
-        break;
-    }
-    let ListItems = this.props.items.length
-      ? <ul className="FeedsList">{
-        this.props.items.map((o,k)=>
-          <li key={k}><a href={o.link} target="_blank">
-            {o.title}
-          </a></li>)
-      }</ul>
-      : <pre>Loading</pre>
+
+    let ListItems = this.props.fetchStatus[`${this.props.name}IsFetching`]
+    ? <pre>Loading</pre>
+    : <ul className="FeedsList">{
+      this.props.items.map((o,k)=>
+        <li key={k}><a href={o.link} target="_blank">
+          {o.title}
+        </a></li>)
+    }</ul>
 
     return (
       <div className="ListComponent column">
