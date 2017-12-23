@@ -66,7 +66,7 @@ class HomeComponent extends Component{
         <div className="ListBodyComponent">
           <div className="columns">
             <pre>screen width: {this.props.screenWidth}</pre>
-            <pre>swiperActive: {toggleSwiper.toString()}</pre>
+            <pre>swiperActive: {this.props.swiperActive.toString()}</pre>
             {iterateListComponent}
           </div>
         </div>
