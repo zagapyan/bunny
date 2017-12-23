@@ -35,7 +35,7 @@ class ListComponent extends Component {
           {o.title}
         </a></li>)
     }</ul>
-
+    
     return (
       <div className="ListComponent column">
         <h5>{this.props.name}</h5>
@@ -44,5 +44,4 @@ class ListComponent extends Component {
     );
   }
 }
-
 export default  ListComponent;

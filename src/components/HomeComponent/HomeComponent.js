@@ -2,7 +2,6 @@ import React, { Component }from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import swiper from 'swiper'
 
 import styles from './HomeComponent.css'
 import HeaderComponent from '../HeaderComponent'
@@ -67,6 +66,7 @@ class HomeComponent extends Component{
         <div className="ListBodyComponent">
           <div className="columns">
             <pre>screen width: {this.props.screenWidth}</pre>
+            <pre>swiperActive: {toggleSwiper.toString()}</pre>
             {iterateListComponent}
           </div>
         </div>
@@ -79,6 +79,7 @@ class HomeComponent extends Component{
 function mapStateToProps(state) {
   return {
     screenWidth: state.clientReducer.screenWidth,
+    swiperActive: state.clientReducer.swiperActive,
     checkSwiperActive: clientActions.checkSwiperActive,
     fetchFeeds: domainActions.fetchFeeds,
     items: state.domainReducer.items,
@@ -97,7 +98,8 @@ function mapDispatchToProps(dispatch) {
 ListComponent.propTypes = {
   fetchFeeds: PropTypes.func,
   items: PropTypes.array,
-  screenWidth: PropTypes.number
+  screenWidth: PropTypes.number,
+  swiperActive: PropTypes.bool
 }
 ListComponent.defaultProps = {}
 
