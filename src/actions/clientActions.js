@@ -1,8 +1,38 @@
-// import * as postsUtil from '../utils/postsUtil';
-export const LOADED_CLIENT = 'LOADED_CLIENT';
-export function setAppClientState (authState) {
+export const SWIPER_STATE = 'SWIPER_STATE'
+export const SCREEN_RESIZE = 'SCREEN_RESIZE'
+
+export function screenResize(width) {
   return {
-    type: LOADED_CLIENT,
-    authState
+      type: SCREEN_RESIZE,
+      screenWidth: width
+  };
+}
+
+export function checkSwiperActive(windowWidth){
+  if(windowWidth<768){
+    console.log('should be mobile')
+    return dispatch =>{
+      return dispatch(setMobileSwiper())
+    } 
+  }
+  else{
+    console.log('should be desktop')
+    return dispatch =>{
+      return dispatch(setDesktopSwiper())
+    }
+  }
+}
+
+export function setDesktopSwiper(){
+  return{
+    type: SWIPER_STATE,
+    swiperActive: false
+  }
+}
+
+export function setMobileSwiper(){
+  return{
+    type: SWIPER_STATE,
+    swiperActive: true
   }
 }

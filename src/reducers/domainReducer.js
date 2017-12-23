@@ -5,7 +5,7 @@ import {
 } from '../actions/domainActions';
 
 import * as domainActions from '../actions/domainActions'
-console.log(domainActions);
+// console.log(domainActions);
 const initialState={
   items: {},
   fetchStatus: {}

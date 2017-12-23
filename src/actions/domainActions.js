@@ -14,9 +14,7 @@ export function fetchFeeds(endpoint, name){
         response => response.json(),
         err => dispatch(rejectFeeds(err,name))
       )
-      .then(json=>{
-        return dispatch(receiveFeeds(json.items, name))
-      })
+      .then(json=>dispatch(receiveFeeds(json.items, name)))
   }
 }
 
