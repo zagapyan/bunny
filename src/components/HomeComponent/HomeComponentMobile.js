@@ -1,11 +1,14 @@
 import React, { Component }from 'react'
 import SwipeableViews from 'react-swipeable-views'
+import ListComponent from '../ListComponent'
+import style from './HomeComponentMobile.css'
+
 
 // const HomeComponentMobile = (props)=> <h1>I am Mobile</h1>
 const styles = {
   slide: {
     padding: 15,
-    minHeight: 100,
+    // minHeight: 100,
     color: '#fff',
   },
   slide1: {
@@ -17,19 +20,24 @@ const styles = {
   slide3: {
     background: '#6AC0FF',
   },
+  slide4: {
+    background: '#B0CDF8',
+  },
 };
 
-const HomeComponentMobile = ({props})=> 
-  (<SwipeableViews enableMouseEvents={true}>
-    <div style={Object.assign({}, styles.slide, styles.slide1)}>
-      slide n°1
-    </div>
-    <div style={Object.assign({}, styles.slide, styles.slide2)}>
-      slide n°2
-    </div>
-    <div style={Object.assign({}, styles.slide, styles.slide3)}>
-      slide n°3
-    </div>
-  </SwipeableViews>)
+const HomeComponentMobile = ({props})=>
+  <SwipeableViews
+    enableMouseEvents={true}
+    className="swipable-views">
+      {
+        Object.keys(props.items)
+          .map(key => 
+            <ListComponent
+              key={key}
+              items={props.items[key]}
+              name={key.replace('Items','')}
+              fetchStatus={props.fetchStatus}/>)
+      }
+  </SwipeableViews>
 
 export default HomeComponentMobile;

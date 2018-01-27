@@ -76,7 +76,7 @@ class HomeComponent extends Component{
           {/* <div className="columns"> */}
             {/* <pre>screen width: { this.props.screenWidth }</pre> */}
             {/* <pre>swiperActive: { this.props.swiperActive.toString() }</pre> */}
-          { mediaScreenType(this.props) }
+            { mediaScreenType(this.props) }
           {/* </div> */}
         </div>
       </div>
