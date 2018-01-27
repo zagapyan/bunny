@@ -12,7 +12,7 @@ class Routes extends Component {
     null
     render() {
         return (
-        <main className="Routes section">
+        <main className="Routes">
           <Switch>
             <Route exact path="/" component={HomeComponent}/>
             <Route component={NoMatchComponent} />          
