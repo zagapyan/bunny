@@ -12,13 +12,13 @@ export function checkSwiperActive(windowWidth){
   if(windowWidth<768){
     console.log('should be mobile')
     return dispatch =>{
-      return dispatch(setMobileSwiper())
+      return setTimeout(()=>dispatch(setMobileSwiper()), 500)
     } 
   }
   else{
     console.log('should be desktop')
     return dispatch =>{
-      return dispatch(setDesktopSwiper())
+      return setTimeout(()=>dispatch(setDesktopSwiper()), 500)
     }
   }
 }

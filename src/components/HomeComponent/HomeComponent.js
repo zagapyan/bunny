@@ -6,6 +6,8 @@ import { connect } from 'react-redux'
 import styles from './HomeComponent.css'
 import HeaderComponent from '../HeaderComponent'
 import ListComponent from '../ListComponent'
+import HomeComponentMobile from './HomeComponentMobile'
+import HomeComponentDesktop from './HomeComponentDesktop'
 
 import * as domainActions from '../../actions/domainActions'
 import * as clientActions from '../../actions/clientActions'
@@ -49,26 +51,33 @@ class HomeComponent extends Component{
     }
   }
   render(){
-    const iterateListComponent = Object.keys(this.props.items).map(key =>
-      {
-        // console.log(this.props);
-        return <ListComponent
-          key={key}
-          items={this.props.items[key]}
-          name={key.replace('Items','')}
-          fetchStatus={this.props.fetchStatus}
-          />
-      }
-    )
+    // const iterateListComponent = Object.keys(this.props.items).map(key =>
+    //   {
+    //     return <ListComponent
+    //       key={key}
+    //       items={this.props.items[key]}
+    //       name={key.replace('Items','')}
+    //       fetchStatus={this.props.fetchStatus}
+    //       />
+    //   }
+    // )
+  
+    const mediaScreenType = props =>{
+      if(!!props.swiperActive)
+        return <HomeComponentMobile props={props}/>
+      else
+        return <HomeComponentDesktop props={props}/>
+    };
+
     return(
       <div className="HomeComponent">
         <HeaderComponent />
-        <div className="ListBodyComponent">
-          <div className="columns">
-            <pre>screen width: {this.props.screenWidth}</pre>
-            <pre>swiperActive: {this.props.swiperActive.toString()}</pre>
-            {iterateListComponent}
-          </div>
+        <div className="ListBodyComponent section">
+          {/* <div className="columns"> */}
+            {/* <pre>screen width: { this.props.screenWidth }</pre> */}
+            {/* <pre>swiperActive: { this.props.swiperActive.toString() }</pre> */}
+          { mediaScreenType(this.props) }
+          {/* </div> */}
         </div>
       </div>
     )
