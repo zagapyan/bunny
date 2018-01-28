@@ -10,6 +10,13 @@
   align-items: flex-start;
   flex-direction: row;
 }
+@media(max-width: 1000px){
+  .HomeComponent .is-desktop{
+    overflow-x: hidden;
+    width: 100%;
+    display: flex; 
+  }
+}
 
 .HomeComponent .is-desktop .ListComponent{
   width: 25%;

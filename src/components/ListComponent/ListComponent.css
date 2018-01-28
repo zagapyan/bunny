@@ -8,6 +8,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
+  height: 4.5rem;
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
@@ -36,20 +37,18 @@
   color: #ffffff;
   display: flex;
   width: 100%;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .ListComponent h5 .header-drop-cap{
-  padding: .5rem;
-  font-size: 1.25rem;
+  padding: 0.3rem .5rem;
   background-color: #ffffff;
   color: #666666;
   height: 2rem;
   width: 2rem;
   margin-right: .5rem;
-}
-
-.ListComponent h5 .header-drop-cap{
-
+  border-radius: 2px;
 }
 
 .ListComponent ul{
@@ -84,7 +83,7 @@
   margin-bottom: .5rem;
 }
 
-.ListComponent ul > li:not(:last-child) > a{
+.ListComponent ul > li > a{
   display: flex;
   width: 100%;
   justify-content: flex-start;
@@ -96,7 +95,8 @@
   background: rgb(206, 206, 206);
   border-radius: 2px;
   padding: 0.5rem 1rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
   color: #ffffff;
 }
 
