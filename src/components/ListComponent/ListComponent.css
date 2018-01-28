@@ -1,18 +1,106 @@
-/* .ListComponent{
-  display: flex;
-  flex: 1;
-  text-align: center;
-  padding: 10px;
-  flex-direction: column;
-  text-align: left;
-}
-.FeedsList{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.ListComponent{
+  background: #E6E6E6;
 }
 
-.FeedsList>li{
+.ListComponent .list-header{
+  padding: 1.25rem 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.ListComponent.producthunt .list-header{
+  background-color: #da552f;
+}
+
+.ListComponent.hackernews .list-header{
+  background-color: #d6724a;
+}
+
+.ListComponent.designernews .list-header{
+  background-color: #487dce;
+}
+
+.ListComponent.echojs .list-header{
+  background-color: #af1d1d;
+}
+
+.ListComponent h5{
+  font-size: 1.25rem;
   margin: 0;
-  padding: 20px 0;
-} */
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  width: 100%;
+}
+
+.ListComponent h5 .header-drop-cap{
+  padding: .5rem;
+  font-size: 1.25rem;
+  background-color: #ffffff;
+  color: #666666;
+  height: 2rem;
+  width: 2rem;
+  margin-right: .5rem;
+}
+
+.ListComponent h5 .header-drop-cap{
+
+}
+
+.ListComponent ul{
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: .5rem .25rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+
+.ListComponent:first-child ul{
+  padding-left: .25rem;  
+}
+
+.ListComponent:last-child ul{
+  padding-right: .25rem;
+}
+
+.ListComponent ul > li{
+  padding: .75rem .5rem;
+  border-radius: 2px;
+  background-color: #ffffff;
+  display: flex;
+  width: 100%;
+}
+
+.ListComponent ul > li:not(:last-child){
+  margin-bottom: .5rem;
+}
+
+.ListComponent ul > li:not(:last-child) > a{
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.ListComponent .item-count{
+  background: rgb(206, 206, 206);
+  border-radius: 2px;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.ListComponent .item-body{
+  padding: 0 0.5rem;
+  font-size: 0.85rem;
+}

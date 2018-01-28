@@ -1,20 +1,34 @@
 .HomeComponent{
-  padding: 0 20px;
-  display: flex;
-  height: 100%;
   width: 100%;
+  display: block;
+  float: left;
+}
+
+.HomeComponent .ListBodyComponent{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.HomeComponent .is-desktop .ListComponent{
+  width: 25%;
+  display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
 }
-.HomeComponent .ListBodyComponent{
-  display: flex;
-  flex-direction: row;
+@media(max-width: 1000px){
+  .HomeComponent .is-desktop .ListComponent{
+    width: 50%;
+  }
+}
+
+
+.HomeComponent .is-mobile .ListComponent{
   width: 100%;
 }
 
-.HomeComponent .ListBodyComponent .list-container{
-  display: flex;
-  justify-content: space-between;
+.HomeComponent .swipable-views{
   width: 100%;
 }
