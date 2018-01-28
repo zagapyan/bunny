@@ -18,6 +18,10 @@
   }
 }
 
+.HomeComponent .ListComponent{
+  height: 100%;
+}
+
 .HomeComponent .is-desktop .ListComponent{
   width: 25%;
   display: flex;
