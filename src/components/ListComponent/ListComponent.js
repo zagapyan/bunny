@@ -16,29 +16,24 @@ class ListComponent extends Component {
   componentDidMount(){}
   componentWillReceiveProps(nextProps){}
   render() {
-    // console.log('fetching',this.props.fetchStatus, this.props.name)
-    // console.log('items length',this.props.items.length)
-    // console.log(
-    //   `${this.props.name}IsFetching`,
-    //   this.props.fetchStatus[`${this.props.name}IsFetching`]
-    // );
-    // console.log(
-    //   `${this.props.name}IsRejected`,
-    //   this.props.fetchStatus[`${this.props.name}IsRejected`]
-    // );
-
     let ListItems = this.props.fetchStatus[`${this.props.name}IsFetching`]
     ? <pre>Loading</pre>
     : <ul className="FeedsList">{
       this.props.items.map((o,k)=>
         <li key={k}><a href={o.link} target="_blank">
-          {o.title}
+          <span className="item-count">{k+1}</span>
+          <span className="item-body">{o.title}</span>
         </a></li>)
     }</ul>
     
     return (
-      <div className="ListComponent column">
-        <h5>{this.props.name}</h5>
+      <div className={`ListComponent ${this.props.name.toLowerCase()}`}>
+        <div className="list-header">
+            <h5>
+            <span className="header-drop-cap">{this.props.name[0]}</span>
+            <span className="header-title">{this.props.name}</span>
+          </h5>
+        </div>
         {ListItems}
       </div>
     );

@@ -6,7 +6,8 @@ import { createBrowserHistory } from 'history'
 import { store, history } from './store'
 import { screenResize, activateSwipervateSwiper } from './actions/clientActions'
 import Routes from './components/Routes'
-import 'bulma/css/bulma.css'
+import 'normalize.css/normalize.css'
+import 'typeface-montserrat'
 import './App.css'
 
 // event listener for window resize

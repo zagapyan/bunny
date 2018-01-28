@@ -51,17 +51,6 @@ class HomeComponent extends Component{
     }
   }
   render(){
-    // const iterateListComponent = Object.keys(this.props.items).map(key =>
-    //   {
-    //     return <ListComponent
-    //       key={key}
-    //       items={this.props.items[key]}
-    //       name={key.replace('Items','')}
-    //       fetchStatus={this.props.fetchStatus}
-    //       />
-    //   }
-    // )
-  
     const mediaScreenType = props =>{
       if(!!props.swiperActive)
         return <HomeComponentMobile props={props}/>
@@ -71,13 +60,8 @@ class HomeComponent extends Component{
 
     return(
       <div className="HomeComponent">
-        <HeaderComponent />
-        <div className="ListBodyComponent section">
-          {/* <div className="columns"> */}
-            {/* <pre>screen width: { this.props.screenWidth }</pre> */}
-            {/* <pre>swiperActive: { this.props.swiperActive.toString() }</pre> */}
-            { mediaScreenType(this.props) }
-          {/* </div> */}
+        <div className={`ListBodyComponent ${this.props.swiperActive ? 'is-mobile' : 'is-desktop'}`}>
+          { mediaScreenType(this.props) }
         </div>
       </div>
     )
