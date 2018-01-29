@@ -34,7 +34,11 @@
     width: 50%;
   }
 }
-
+@media(max-width: 768px){
+  .HomeComponent .ListComponent{
+    width: 100%;
+  }
+}
 
 .HomeComponent .is-mobile .ListComponent{
   width: 100%;
