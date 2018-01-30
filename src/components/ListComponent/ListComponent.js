@@ -30,11 +30,13 @@ class ListComponent extends Component {
       <div className={`ListComponent ${this.props.name.toLowerCase()}`}>
         <div className="list-header">
             <h5>
-            <span className="header-drop-cap">{this.props.name[0]}</span>
-            <span className="header-title">{this.props.name}</span>
+              {/* <a href="//google.com" target="_blank" link="noopener"> */}
+                <span className="header-drop-cap">{this.props.name[0]}</span>
+                <span className="header-title">{this.props.name}</span>
+              {/* </a> */}
           </h5>
         </div>
-        {ListItems}
+        { ListItems }
       </div>
     );
   }

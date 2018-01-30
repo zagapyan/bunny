@@ -15,19 +15,23 @@ import * as clientActions from '../../actions/clientActions'
 const endpoints = [
   {
     url: 'https://www.producthunt.com/feed?category=undefined',
-    name: 'ProductHunt'
+    name: 'ProductHunt',
+    homepage: 'https://www.producthunt.com'
   },
   {
     url: 'https://news.ycombinator.com/rss',
-    name: 'HackerNews'
+    name: 'HackerNews',
+    homepage: 'https://news.ycombinator.com'
   },
   {
     url: 'https://www.designernews.co/?format=rss',
-    name: 'DesignerNews'
+    name: 'DesignerNews',
+    homepage: 'https://www.designernews.co'
   },
   {
     url: 'http://www.echojs.com/rss',
-    name: 'EchoJS'
+    name: 'EchoJS',
+    homepage: 'http://www.echojs.com/',
   },
 ]
 
@@ -37,7 +41,7 @@ class HomeComponent extends Component{
   }
   null
   componentDidMount(){
-    endpoints.map(o=>this.props.fetchFeeds(o.url, o.name))
+    endpoints.map(o=>this.props.fetchFeeds(o.url, o.name, o.homepage))
     this.props.checkSwiperActive(this.props.screenWidth);
   }
   componentWillReceiveProps(nextProps){

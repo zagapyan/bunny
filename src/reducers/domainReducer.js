@@ -5,6 +5,7 @@ import {
 } from '../actions/domainActions';
 
 import * as domainActions from '../actions/domainActions'
+
 // console.log(domainActions);
 const initialState={
   items: {},
@@ -17,15 +18,16 @@ export default function postsReducer(state=initialState, action) {
     case(RECEIVE_FEEDS):
       return{
         ...state,
+        [`${action.name}Homepage`]: action[`${action.name}Homepage`],
         items: {
           ...state.items,
           [`${action.name}Items`]: action[`${action.name}Items`]
         },
-        fetchStatus: Object.assign({}, state.fetchStatus, {
+        fetchStatus: Object.assign({},
+          state.fetchStatus, {
           [`${action.name}IsFetching`]: action[`${action.name}IsFetching`],
           [`${action.name}IsRejected`]: action[`${action.name}IsRejected`]
         }),
-        // name: `${action.name}`
       }
     case(REQUEST_FEEDS):
     return{
@@ -34,7 +36,6 @@ export default function postsReducer(state=initialState, action) {
           [`${action.name}IsFetching`]: action[`${action.name}IsFetching`],
           [`${action.name}IsRejected`]: action[`${action.name}IsRejected`]
         }),
-        // name: `${action.name}`
       }
     case(REJECT_FEEDS):
       return{
