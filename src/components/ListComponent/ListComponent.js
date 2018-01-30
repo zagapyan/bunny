@@ -20,7 +20,7 @@ class ListComponent extends Component {
     ? <pre>Loading</pre>
     : <ul className="FeedsList">{
       this.props.items.map((o,k)=>
-        <li key={k}><a href={o.link} target="_blank">
+        <li key={k}><a href={o.link} target="_blank" rel="noopener">
           <span className="item-count">{k+1}</span>
           <span className="item-body">{o.title}</span>
         </a></li>)
