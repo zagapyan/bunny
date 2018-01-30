@@ -14,7 +14,12 @@
   .HomeComponent .is-desktop{
     overflow-x: hidden;
     width: 100%;
-    display: flex; 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 4px;
+    padding: 4px;
+    background: #454545;
   }
 }
 
@@ -31,7 +36,8 @@
 }
 @media(max-width: 1000px){
   .HomeComponent .is-desktop .ListComponent{
-    width: 50%;
+    width: 100%;
+    height: 50vh;
   }
 }
 @media(max-width: 768px){

@@ -5,12 +5,10 @@
 .ListComponent .list-header{
   padding: 1.25rem 1rem;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 4.5rem;
-  display: flex;
-  justify-content: flex-start;
   flex-direction: row;
 }
 
