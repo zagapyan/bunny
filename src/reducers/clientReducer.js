@@ -5,7 +5,7 @@ import {
 
 const initialState = {
   screenWidth: typeof window === 'object' ? window.innerWidth : null,
-  swiperActive: false
+  swiperActive: true
 };
 
 export default function uiReducer(state = initialState, action) {
