@@ -7,15 +7,13 @@ const HomeComponentMobile = ({props})=>
   <SwipeableViews
     enableMouseEvents={true}
     className="swipable-views">
-      {
-        Object.keys(props.items)
-          .map(key => 
-            <ListComponent
-              key={key}
-              items={props.items[key]}
-              name={key.replace('Items','')}
-              fetchStatus={props.fetchStatus}/>)
-      }
+      {props.endpoints.map(o=>
+        <ListComponent
+            key={o.name}
+            name={o.name}
+            url={o.url}
+            homepage={o.homepage}
+            fetchFeeds={props.fetchFeeds}/>)}
   </SwipeableViews>
 
 export default HomeComponentMobile;

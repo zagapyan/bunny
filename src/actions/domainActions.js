@@ -5,7 +5,7 @@
 */
 
 export const FETCH_FEEDS = 'FETCH_FEEDS';
-export function fetchFeeds(endpoint, name){
+export function fetchFeeds(endpoint, name, homepage){
   return dispatch =>{
     dispatch(requestFeeds(name));
     let rssToJSONEndpoint = `https://api.rss2json.com/v1/api.json?rss_url=${endpoint}`;
@@ -14,7 +14,7 @@ export function fetchFeeds(endpoint, name){
         response => response.json(),
         err => dispatch(rejectFeeds(err,name))
       )
-      .then(json=>dispatch(receiveFeeds(json.items, name)))
+      .then(json=>dispatch(receiveFeeds(json.items, name, homepage)))
   }
 }
 
@@ -31,11 +31,12 @@ export function requestFeeds(name){
 
 export const RECEIVE_FEEDS = 'RECEIVE_FEEDS';
 
-export function receiveFeeds(items, name){
+export function receiveFeeds(items, name, homepage){
   // sending dynamic keyhash variables to dispatch actions to reducers
   return{
     type: `RECEIVE_FEEDS`,
     name,
+    [`${name}Homepage`]: homepage,
     [`${name}IsFetching`]: false,
     [`${name}IsRejected`]: false,
     [`${name}Items`]: items
