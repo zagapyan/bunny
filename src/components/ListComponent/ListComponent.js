@@ -20,14 +20,15 @@ class ListComponent extends Component {
     let isCurrentlyFetching =
       this.props.fetchStatus
       && !this.props.fetchStatus[`${this.props.name}IsFetching`]
-
+      
     let ListItems =
       <ul className="FeedsList">{
-        this.props.items.length > 0 ? this.props.items[`${this.props.name}Items`].map((o,k)=>
-          <li key={k}><a href={o.link} target="_blank" rel="noopener">
-            <span className="item-count">{k+1}</span>
-            <span className="item-body">{o.title}</span>
-          </a></li>)
+        this.props.items[`${this.props.name}Items`]
+          ? this.props.items[`${this.props.name}Items`].map((o,k)=>
+            <li key={k}><a href={o.link} target="_blank" rel="noopener">
+              <span className="item-count">{k+1}</span>
+              <span className="item-body">{o.title}</span>
+            </a></li>)
           : 'false'
       }</ul> 
     return (
@@ -40,7 +41,6 @@ class ListComponent extends Component {
               </a>
           </h5>
         </div>
-        {/* {JSON.stringify(this.props)} */}
         { isCurrentlyFetching
           ? ListItems 
           : <ul className="FeedsList loading"><li><ScaleLoader color="#545454" /></li></ul>
