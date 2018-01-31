@@ -13,26 +13,26 @@ import * as domainActions from '../../actions/domainActions'
 import * as clientActions from '../../actions/clientActions'
 
 const endpoints = [
-  {
-    url: 'https://www.producthunt.com/feed?category=undefined',
-    name: 'ProductHunt',
-    homepage: 'https://www.producthunt.com'
-  },
-  {
-    url: 'https://news.ycombinator.com/rss',
-    name: 'HackerNews',
-    homepage: 'https://news.ycombinator.com'
-  },
-  {
-    url: 'https://www.designernews.co/?format=rss',
-    name: 'DesignerNews',
-    homepage: 'https://www.designernews.co'
-  },
-  {
-    url: 'http://www.echojs.com/rss',
-    name: 'EchoJS',
-    homepage: 'http://www.echojs.com/',
-  },
+  // {
+  //   url: 'https://www.producthunt.com/feed?category=undefined',
+  //   name: 'ProductHunt',
+  //   homepage: 'https://www.producthunt.com'
+  // },
+  // {
+  //   url: 'https://news.ycombinator.com/rss',
+  //   name: 'HackerNews',
+  //   homepage: 'https://news.ycombinator.com'
+  // },
+  // {
+  //   url: 'https://www.designernews.co/?format=rss',
+  //   name: 'DesignerNews',
+  //   homepage: 'https://www.designernews.co'
+  // },
+  // {
+  //   url: 'http://www.echojs.com/rss',
+  //   name: 'EchoJS',
+  //   homepage: 'http://www.echojs.com/',
+  // },
 ]
 
 class HomeComponent extends Component{
@@ -41,7 +41,7 @@ class HomeComponent extends Component{
   }
   null
   componentDidMount(){
-    endpoints.map(o=>this.props.fetchFeeds(o.url, o.name, o.homepage))
+    // endpoints.map(o=>this.props.fetchFeeds(o.url, o.name, o.homepage))
     this.props.checkSwiperActive(this.props.screenWidth);
   }
   componentWillReceiveProps(nextProps){
@@ -82,6 +82,28 @@ function mapStateToProps(state) {
     items: state.domainReducer.items,
     name: state.domainReducer.name,
     fetchStatus: state.domainReducer.fetchStatus,
+    endpoints: [
+        {
+          url: 'https://www.producthunt.com/feed?category=undefined',
+          name: 'ProductHunt',
+          homepage: 'https://www.producthunt.com'
+        },
+        {
+          url: 'https://news.ycombinator.com/rss',
+          name: 'HackerNews',
+          homepage: 'https://news.ycombinator.com'
+        },
+        {
+          url: 'https://www.designernews.co/?format=rss',
+          name: 'DesignerNews',
+          homepage: 'https://www.designernews.co'
+        },
+        {
+          url: 'http://www.echojs.com/rss',
+          name: 'EchoJS',
+          homepage: 'http://www.echojs.com/',
+        }
+    ]
   };
 }
 
@@ -92,13 +114,23 @@ function mapDispatchToProps(dispatch) {
   }, dispatch);
 }
 
-ListComponent.propTypes = {
+HomeComponent.propTypes = {
   fetchFeeds: PropTypes.func,
+  fetchStatus: PropTypes.shape({
+    ProductHuntIsFetching: PropTypes.bool,
+    ProductHuntIsRejected: PropTypes.bool,
+    HackerNewsIsFetching: PropTypes.bool,
+    HackerNewsIsRejected: PropTypes.bool,
+    DesignerNewsIsFetching: PropTypes.bool,
+    DesignerNewsIsRejected: PropTypes.bool,
+    EchoJSIsFetching: PropTypes.bool,
+    EchoJSIsRejected: PropTypes.bool,
+  }),
   items: PropTypes.array,
   screenWidth: PropTypes.number,
   swiperActive: PropTypes.bool
 }
-ListComponent.defaultProps = {}
+HomeComponent.defaultProps = {}
 
 export default connect(
   mapStateToProps,

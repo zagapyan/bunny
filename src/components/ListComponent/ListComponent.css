@@ -32,11 +32,14 @@
   font-size: 1.25rem;
   margin: 0;
   font-weight: 600;
-  color: #ffffff;
   display: flex;
   width: 100%;
   justify-content: flex-start;
   align-items: center;
+}
+
+.ListComponent h5 a{
+  color: #ffffff;
 }
 
 .ListComponent h5 .header-drop-cap{
@@ -62,6 +65,10 @@
   overflow-y: scroll;
 }
 
+.ListComponent ul.loading{
+  align-items: center;
+  justify-content: space-around;
+}
 
 .ListComponent:first-child ul{
   padding-left: .25rem;  
@@ -79,6 +86,12 @@
   width: 100%;
   box-shadow: 0px 0px 1px 0px rgba(50,50,50,0.05);
 }
+
+.ListComponent ul.loading li{
+  background: transparent;
+  text-align: center;
+}
+
 
 .ListComponent ul > li:not(:last-child){
   margin-bottom: .5rem;

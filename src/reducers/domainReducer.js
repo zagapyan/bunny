@@ -9,7 +9,16 @@ import * as domainActions from '../actions/domainActions'
 // console.log(domainActions);
 const initialState={
   items: {},
-  fetchStatus: {}
+  fetchStatus: {
+    ProductHuntIsFetching: false,
+    ProductHuntIsRejected: false,
+    HackerNewsIsFetching: false,
+    HackerNewsIsRejected: false,
+    DesignerNewsIsFetching: false,
+    DesignerNewsIsRejected: false,
+    EchoJSIsFetching: false,
+    EchoJSIsRejected: false,
+  }
 }
 
 export default function postsReducer(state=initialState, action) {
