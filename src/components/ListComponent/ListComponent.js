@@ -23,12 +23,12 @@ class ListComponent extends Component {
 
     let ListItems =
       <ul className="FeedsList">{
-        this.props.items ? this.props.items[`${this.props.name}Items`].map((o,k)=>
+        this.props.items.length > 0 ? this.props.items[`${this.props.name}Items`].map((o,k)=>
           <li key={k}><a href={o.link} target="_blank" rel="noopener">
             <span className="item-count">{k+1}</span>
             <span className="item-body">{o.title}</span>
           </a></li>)
-          : false
+          : 'false'
       }</ul> 
     return (
       <div className={`ListComponent ${this.props.name.toLowerCase()}`}>
@@ -40,6 +40,7 @@ class ListComponent extends Component {
               </a>
           </h5>
         </div>
+        {/* {JSON.stringify(this.props)} */}
         { isCurrentlyFetching
           ? ListItems 
           : <ul className="FeedsList loading"><li><ScaleLoader color="#545454" /></li></ul>
