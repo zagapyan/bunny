@@ -13,7 +13,9 @@ const HomeComponentMobile = ({props})=>
             name={o.name}
             url={o.url}
             homepage={o.homepage}
-            fetchFeeds={props.fetchFeeds}/>)}
+            fetchFeeds={props.fetchFeeds}
+            fetchStatus={props.fetchStatus}
+            items={props.items}/>)}
   </SwipeableViews>
 
 export default HomeComponentMobile;
