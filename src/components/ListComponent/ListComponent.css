@@ -38,7 +38,10 @@
   align-items: center;
 }
 
-.ListComponent h5 a{
+.ListComponent h5 a,
+.ListComponent h5 a:link,
+.ListComponent h5 a:focus,
+.ListComponent h5 a:visited{
   color: #ffffff;
 }
 
