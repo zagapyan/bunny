@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { ScaleLoader } from 'react-spinners'
 import styles from './ListComponent.css'
 import withLoader from '../../containers/withLoader';
 import ListHeaderComponent from '../ListHeaderComponent'
+import LoadingListComponent from '../LoadingListComponent'
 import FeedsListComponent from '../FeedsListComponent';
 import * as domainActions from '../../actions/domainActions'
 import * as clientActions from '../../actions/clientActions'
@@ -27,15 +27,8 @@ class ListComponent extends Component {
     return (
       <div className={`ListComponent ${this.props.name.toLowerCase()}`}>
         <ListHeaderComponent props={this.props} />
-        {withLoader(isCurrentlyFetching)
-          (<FeedsListComponent props={this.props} />,
-            () =>
-              (<ul className="FeedsList loading">
-                <li>
-                  <ScaleLoader color="#545454" />
-                </li>
-              </ul>)
-          )
+        {withLoader(isCurrentlyFetching, this.props)
+          (FeedsListComponent,LoadingListComponent)
         }
       </div>
     );
