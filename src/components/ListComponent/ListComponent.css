@@ -2,7 +2,7 @@
   background: #E6E6E6;
 }
 
-.ListComponent .list-header{
+.ListComponent .ListHeaderComponent{
   padding: 1.25rem 1rem;
   display: flex;
   justify-content: center;
@@ -12,19 +12,19 @@
   flex-direction: row;
 }
 
-.ListComponent.producthunt .list-header{
+.ListComponent.producthunt .ListHeaderComponent{
   background-color: #da552f;
 }
 
-.ListComponent.hackernews .list-header{
+.ListComponent.hackernews .ListHeaderComponent{
   background-color: #d6724a;
 }
 
-.ListComponent.designernews .list-header{
+.ListComponent.designernews .ListHeaderComponent{
   background-color: #487dce;
 }
 
-.ListComponent.echojs .list-header{
+.ListComponent.echojs .ListHeaderComponent{
   background-color: #af1d1d;
 }
 
