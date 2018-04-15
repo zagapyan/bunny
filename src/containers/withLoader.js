@@ -1,9 +1,7 @@
 import React from 'react'
 
-const withLoader = (testProps) =>
+const withLoader = (testProps, props) =>
   (TrueComponent, FalseComponent) =>
-    testProps ? TrueComponent : FalseComponent;
-
-
+    testProps ? <TrueComponent props={props}/> : <FalseComponent />;
 
 export default withLoader;
