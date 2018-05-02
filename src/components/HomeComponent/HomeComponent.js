@@ -58,7 +58,7 @@ class HomeComponent extends Component {
     return (
       <div className="HomeComponent">
         <div className={`ListBodyComponent ${this.props.swiperActive ? 'is-mobile' : 'is-desktop'}`}>
-          { withMediaScreenDetector(this.props, 'isSwiperActive')(HomeComponentMobile, HomeComponentDesktop) }
+          { withMediaScreenDetector(this.props, this.props.swiperActive)(HomeComponentMobile, HomeComponentDesktop) }
         </div>
       </div>
     )
