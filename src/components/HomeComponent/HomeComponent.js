@@ -29,10 +29,20 @@ const endpoints = [
     homepage: 'https://www.designernews.co'
   },
   {
+    url: 'https://frontendfront.com/feed/stories',
+    name: 'FrontEndFront',
+    homepage: 'http://www.frontendfront.com/',
+  },
+  {
     url: 'http://www.echojs.com/rss',
     name: 'EchoJS',
     homepage: 'http://www.echojs.com/',
-  }
+  },
+  {
+    url: 'https://lobste.rs/rss',
+    name: 'Lobsters',
+    homepage: 'https://lobste.rs/',
+  },
 ]
 
 class HomeComponent extends Component {

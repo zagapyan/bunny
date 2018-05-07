@@ -1,6 +1,8 @@
 export const SWIPER_STATE = 'SWIPER_STATE'
 export const SCREEN_RESIZE = 'SCREEN_RESIZE'
 
+const mobileMaxWidth = 768;
+
 export function screenResize(width) {
   return {
       type: SCREEN_RESIZE,
@@ -9,7 +11,7 @@ export function screenResize(width) {
 }
 
 export function checkSwiperActive(windowWidth){
-  if(windowWidth<768){
+  if(windowWidth < mobileMaxWidth){
     console.log('should be mobile')
     return dispatch =>{
       return setTimeout(()=>
