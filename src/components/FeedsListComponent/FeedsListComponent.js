@@ -10,7 +10,7 @@ const FeedsListComponent = ({props}) => (
           <span className="item-count">{k + 1}</span>
           <span className="item-body">{o.title}</span>
         </a></li>)
-      : 'false'
+      : false
   }</ul>
 );
 
