@@ -6,7 +6,7 @@ import { createBrowserHistory } from 'history'
 import { store, history } from './store'
 import { screenResize, activateSwipervateSwiper } from './actions/clientActions'
 import Routes from './components/Routes'
-import 'normalize.css/normalize.css'
+import 'normalize-css';
 import 'typeface-montserrat'
 import './App.css'
 
