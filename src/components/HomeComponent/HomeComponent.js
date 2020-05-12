@@ -117,4 +117,4 @@ HomeComponent.defaultProps = {}
 export default connect(
   mapStateToProps,
   mapDispatchToProps)
-  (HomeComponent);
+(HomeComponent);
