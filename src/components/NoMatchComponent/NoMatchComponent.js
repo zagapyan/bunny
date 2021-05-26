@@ -1,21 +1,14 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
-import styles from './NoMatchComponent.css'
+import React, { PureComponent } from "react";
+import "./NoMatchComponent.css";
 
 class NoMatchComponent extends PureComponent {
-  constructor(props) {
-    super(props)
-  }
-  null
   render() {
-    return (
-      <div className="NoMatchComponent">404 Not Found</div>
-    );
+    return <div className="NoMatchComponent">404 Not Found</div>;
   }
 }
 
-NoMatchComponent.propTypes = {}
+NoMatchComponent.propTypes = {};
 
-NoMatchComponent.defaultProps = {}
+NoMatchComponent.defaultProps = {};
 
-export default NoMatchComponent
+export default NoMatchComponent;

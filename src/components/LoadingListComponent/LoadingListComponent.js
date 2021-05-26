@@ -1,9 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { ScaleLoader } from 'react-spinners'
-import styles from './LoadingListComponent.css'
+import React from "react";
+import { ScaleLoader } from "react-spinners";
+import "./LoadingListComponent.css";
 
-const LoadingListComponent = ({}) => (
+const LoadingListComponent = () => (
   <ul className="LoadingListComponent loading">
     <li>
       <ScaleLoader color="#545454" />
@@ -11,8 +10,8 @@ const LoadingListComponent = ({}) => (
   </ul>
 );
 
-LoadingListComponent.propTypes = {}
+LoadingListComponent.propTypes = {};
 
-LoadingListComponent.defaultProps = {}
+LoadingListComponent.defaultProps = {};
 
-export default LoadingListComponent
+export default LoadingListComponent;

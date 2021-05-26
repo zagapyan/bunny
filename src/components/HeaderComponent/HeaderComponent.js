@@ -1,19 +1,23 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styles from './HeaderComponent.css'
+import React from "react";
+import "./HeaderComponent.css";
 
 const HeaderComponent = ({}) => (
   <section className="HeaderComponent hero">
     <div className="hero-body">
       <div className="container level">
-        <h1 className="title is-5 has-text-centered level-item">BUNNY<span>🐰</span></h1>
+        <h1 className="title is-5 has-text-centered level-item">
+          BUNNY
+          <span role="img" aria-labelledby="bunny">
+            🐰
+          </span>
+        </h1>
       </div>
     </div>
   </section>
 );
 
-HeaderComponent.propTypes = {}
+HeaderComponent.propTypes = {};
 
-HeaderComponent.defaultProps = {}
+HeaderComponent.defaultProps = {};
 
-export default HeaderComponent
+export default HeaderComponent;

@@ -1,11 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styles from './ListHeaderComponent.css'
+import React from "react";
+import "./ListHeaderComponent.css";
 
-const ListHeaderComponent = ({props}) => (
+const ListHeaderComponent = ({ props }) => (
   <div className="ListHeaderComponent">
     <h5>
-      <a href={props.homepage} target="_blank" link="noopener">
+      <a href={props.homepage} target="_blank" rel="noopener noreferrer">
         <span className="header-drop-cap">{props.name[0]}</span>
         <span className="header-title">{props.name}</span>
       </a>
@@ -13,8 +12,8 @@ const ListHeaderComponent = ({props}) => (
   </div>
 );
 
-ListHeaderComponent.propTypes = {}
+ListHeaderComponent.propTypes = {};
 
-ListHeaderComponent.defaultProps = {}
+ListHeaderComponent.defaultProps = {};
 
-export default ListHeaderComponent
+export default ListHeaderComponent;

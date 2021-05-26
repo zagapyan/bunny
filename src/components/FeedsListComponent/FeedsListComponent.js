@@ -1,21 +1,23 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styles from './FeedsListComponent.css'
+import React from "react";
+import "./FeedsListComponent.css";
 
-const FeedsListComponent = ({props}) => (
-  <ul className="FeedsListComponent">{
-    props.items[`${props.name}Items`]
-      ? props.items[`${props.name}Items`].map((o, k) =>
-        <li key={k}><a href={o.link} target="_blank" rel="noopener">
-          <span className="item-count">{k + 1}</span>
-          <span className="item-body">{o.title}</span>
-        </a></li>)
-      : false
-  }</ul>
+const FeedsListComponent = ({ props }) => (
+  <ul className="FeedsListComponent">
+    {props.items[`${props.name}Items`]
+      ? props.items[`${props.name}Items`].map((o, k) => (
+          <li key={k}>
+            <a href={o.link} target="_blank" rel="noopener noreferrer">
+              <span className="item-count">{k + 1}</span>
+              <span className="item-body">{o.title}</span>
+            </a>
+          </li>
+        ))
+      : false}
+  </ul>
 );
 
-FeedsListComponent.propTypes = {}
+FeedsListComponent.propTypes = {};
 
-FeedsListComponent.defaultProps = {}
+FeedsListComponent.defaultProps = {};
 
-export default FeedsListComponent
+export default FeedsListComponent;

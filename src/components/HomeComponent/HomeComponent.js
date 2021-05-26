@@ -1,55 +1,49 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
-import styles from './HomeComponent.css'
-import HeaderComponent from '../HeaderComponent'
-import ListComponent from '../ListComponent'
-import HomeComponentMobile from './HomeComponentMobile'
-import HomeComponentDesktop from './HomeComponentDesktop'
-import withMediaScreenDetector from '../../containers/withMediaScreenDetector'
-import * as domainActions from '../../actions/domainActions'
-import * as clientActions from '../../actions/clientActions'
+import "./HomeComponent.css";
+import HomeComponentMobile from "./HomeComponentMobile";
+import HomeComponentDesktop from "./HomeComponentDesktop";
+import withMediaScreenDetector from "../../containers/withMediaScreenDetector";
+import * as domainActions from "../../actions/domainActions";
+import * as clientActions from "../../actions/clientActions";
 
 const endpoints = [
   {
-    url: 'https://www.producthunt.com/feed?category=undefined',
-    name: 'ProductHunt',
-    homepage: 'https://www.producthunt.com'
+    url: "https://www.producthunt.com/feed?category=undefined",
+    name: "ProductHunt",
+    homepage: "https://www.producthunt.com",
   },
   {
-    url: 'https://news.ycombinator.com/rss',
-    name: 'HackerNews',
-    homepage: 'https://news.ycombinator.com'
+    url: "https://news.ycombinator.com/rss",
+    name: "HackerNews",
+    homepage: "https://news.ycombinator.com",
   },
   {
-    url: 'https://www.designernews.co/?format=rss',
-    name: 'DesignerNews',
-    homepage: 'https://www.designernews.co'
+    url: "https://www.designernews.co/?format=rss",
+    name: "DesignerNews",
+    homepage: "https://www.designernews.co",
   },
   {
-    url: 'https://frontendfront.com/feed/stories',
-    name: 'FrontEndFront',
-    homepage: 'http://www.frontendfront.com/',
+    url: "https://frontendfront.com/feed/stories",
+    name: "FrontEndFront",
+    homepage: "http://www.frontendfront.com/",
   },
   {
-    url: 'http://www.echojs.com/rss',
-    name: 'EchoJS',
-    homepage: 'http://www.echojs.com/',
+    url: "http://www.echojs.com/rss",
+    name: "EchoJS",
+    homepage: "http://www.echojs.com/",
   },
   {
-    url: 'https://lobste.rs/rss',
-    name: 'Lobsters',
-    homepage: 'https://lobste.rs/',
+    url: "https://lobste.rs/rss",
+    name: "Lobsters",
+    homepage: "https://lobste.rs/",
   },
-]
+];
 
 class HomeComponent extends Component {
-  constructor(props) {
-    super(props);
-  }
-  null
   componentDidMount() {
     // endpoints.map(o=>this.props.fetchFeeds(o.url, o.name, o.homepage))
     this.props.checkSwiperActive(this.props.screenWidth);
@@ -67,13 +61,20 @@ class HomeComponent extends Component {
   render() {
     return (
       <div className="HomeComponent">
-        <div className={`ListBodyComponent ${this.props.swiperActive ? 'is-mobile' : 'is-desktop'}`}>
-          { withMediaScreenDetector(this.props, this.props.swiperActive)(HomeComponentMobile, HomeComponentDesktop) }
+        <div
+          className={`ListBodyComponent ${
+            this.props.swiperActive ? "is-mobile" : "is-desktop"
+          }`}
+        >
+          {withMediaScreenDetector(this.props, this.props.swiperActive)(
+            HomeComponentMobile,
+            HomeComponentDesktop
+          )}
         </div>
       </div>
-    )
+    );
   }
-};
+}
 
 // export default HomeComponent;
 function mapStateToProps(state) {
@@ -85,15 +86,18 @@ function mapStateToProps(state) {
     items: state.domainReducer.items,
     name: state.domainReducer.name,
     fetchStatus: state.domainReducer.fetchStatus,
-    endpoints: endpoints
+    endpoints: endpoints,
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    ...clientActions,
-    ...domainActions
-  }, dispatch);
+  return bindActionCreators(
+    {
+      ...clientActions,
+      ...domainActions,
+    },
+    dispatch
+  );
 }
 
 HomeComponent.propTypes = {
@@ -110,11 +114,8 @@ HomeComponent.propTypes = {
   }),
   items: PropTypes.array,
   screenWidth: PropTypes.number,
-  swiperActive: PropTypes.bool
-}
-HomeComponent.defaultProps = {}
+  swiperActive: PropTypes.bool,
+};
+HomeComponent.defaultProps = {};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps)
-(HomeComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeComponent);
