@@ -61,9 +61,6 @@ class HomeComponent extends Component {
   render() {
     return (
       <div className="HomeComponent">
-        <div className="header-container">
-          <h1>Bunny News</h1>
-        </div>
         <div
           className={`ListBodyComponent ${
             this.props.swiperActive ? "is-mobile" : "is-desktop"
