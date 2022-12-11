@@ -14,3 +14,16 @@
   grid-gap: 0.5rem;
   height: 100vh;
 }
+
+@media (max-width: 1200px) {
+  .App {
+    display: flex;
+    width: 100%;
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+}
