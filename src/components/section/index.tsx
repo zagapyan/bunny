@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Error from './error';
-import Loader from './loader'
-import './style.css'
+import Loader from './loader';
+import './style.css';
 
 type Props = {
   className: string;
   endpoint: string;
   title: string;
   homepage: string;
-}
+};
 
 type Payload = {
   feed: string;
-  items: Item[]
-}
+  items: Item[];
+};
 
 type Item = {
   title: string;
   pubDate: string;
   link: string;
-}
+};
 
 export const Section = (props: Props) => {
   const { className, endpoint, title, homepage } = props;
@@ -29,17 +29,22 @@ export const Section = (props: Props) => {
   const [items, setItems] = useState<Array<Item>>([]);
 
   useEffect(() => {
-    const rssEndpoint = `https://api.rss2json.com/v1/api.json?rss_url=${endpoint}`
-    axios.get(rssEndpoint).then(response => response.data).then((data: Payload) => {
-      setItems(data.items);
-    }).catch((err) => {
-      setError(JSON.stringify(err));
-    }).finally(() => {
-      setLoading(false);
-    })
+    const rssEndpoint = `https://api.rss2json.com/v1/api.json?rss_url=${endpoint}`;
+    axios
+      .get(rssEndpoint)
+      .then(response => response.data)
+      .then((data: Payload) => {
+        setItems(data.items);
+      })
+      .catch(err => {
+        setError(JSON.stringify(err));
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [endpoint]);
 
-  if (error) return <Error />
+  if (error) return <Error />;
 
   return (
     <div className="section">
@@ -49,18 +54,22 @@ export const Section = (props: Props) => {
           <span className="text">{title}</span>
         </a>
       </h2>
-      {error && (<Error />)}
+      {error && <Error />}
       {loading && <Loader />}
-      {Boolean(items.length) && (<div className="items-container">{items.map((item, index) =>
-        <p className="item" key={index.toString()}>
-          <a className="link" href={item.link} target="_blank">
-            <span className="symbol">{(index + 1).toString()}</span>
-            <span className="text">{item.title}</span>
-          </a>
-        </p>)}
-      </div>)}
+      {Boolean(items.length) && (
+        <div className="items-container">
+          {items.map((item, index) => (
+            <p className="item" key={index.toString()}>
+              <a className="link" href={item.link} target="_blank">
+                <span className="symbol">{(index + 1).toString()}</span>
+                <span className="text">{item.title}</span>
+              </a>
+            </p>
+          ))}
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Section
+export default Section;
