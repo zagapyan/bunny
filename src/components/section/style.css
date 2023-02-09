@@ -147,9 +147,14 @@
   color: #555;
 }
 
+.section .title .text {
+  font-weight: 500;
+}
+
 .section .text {
   box-sizing: border-box;
   margin-left: 1rem;
+  font-weight: 400;
 }
 
 .error,
